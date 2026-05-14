@@ -14,7 +14,7 @@ struct ContentView: View {
     
     @State private var errorTitle = ""
     @State private var errorMessage = ""
-    @State private var showingEError = false
+    @State private var showingError = false
 
     var body: some View {
         NavigationStack {
@@ -36,7 +36,7 @@ struct ContentView: View {
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
-            .alert(errorTitle, isPresented: $showingEError) {
+            .alert(errorTitle, isPresented: $showingError) {
                 Button("OK") {}
             } message: {
                 Text(errorMessage)
@@ -114,7 +114,7 @@ struct ContentView: View {
     func wordError(title: String, message: String) {
         errorTitle = title
         errorMessage = message
-        showingEError = true
+        showingError = true
     }
 }
 
